@@ -61,6 +61,10 @@ public class Valuta {
     }
        
     public static double konvertujUDevizu(double dinar, Valuta val){
+        if(val.kurs == 0){
+            return 0;
+        }
+            
         double deviza = dinar / val.kurs;
         return(zakruziNa1Decimalu(deviza));
     }
