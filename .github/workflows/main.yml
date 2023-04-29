@@ -1,0 +1,4 @@
+name: Moja akcija
+on:
+  push:
+    branches: [ main ]
