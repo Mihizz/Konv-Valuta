@@ -161,7 +161,7 @@ public class KonvertorValuta {
                                 continue;
                             }
                                 
-                            valute.get(valuta).setKurs(sc.nextDouble());    
+                            valute.get(valuta).setKurs(newKurs);    
                             
                             System.out.println("-------------------");
                             System.out.println("Kurs je uspesno promenjen u " + valute.get(valuta).getKurs());
