@@ -106,6 +106,9 @@ public class KonvertorValuta {
                     for (int i = 0; i < valute.size(); i++) {
                             System.out.println((i + 1) + ". " + valute.get(i).toStringList());
                         }
+                    System.out.println("-------RESET-------");
+                    break;
+                    
                 case (4):
                     System.out.println("-------------------");
                     System.out.println("Odaberite koju akciju zelite da izvrsite");
