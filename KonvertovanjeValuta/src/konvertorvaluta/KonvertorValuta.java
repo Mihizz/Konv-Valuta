@@ -144,6 +144,12 @@ public class KonvertorValuta {
                             System.out.print("Zelim valutu: ");
                             int valuta = sc.nextInt()-1;
                             
+                            if(valuta > valute.size() || valuta <= 0){
+                                System.out.println("Pogresan unos!");
+                                System.out.println("-------RESET-------");
+                                continue;
+                            }
+                            
                             System.out.println("-------------------");
                             System.out.println("Trenutni kurs valute: " + valute.get(valuta).getKurs());
                             System.out.print("Novi kurs: ");
@@ -163,6 +169,12 @@ public class KonvertorValuta {
                             System.out.print("Zelim valutu: ");
                             int valutaDelete = sc.nextInt()-1;
                             
+                            if(valutaDelete > valute.size() || valutaDelete <= 0){
+                                System.out.println("Pogresan unos!");
+                                System.out.println("-------RESET-------");
+                                continue;
+                            }
+                            
                             System.out.println("-------------------");
                             System.out.println("Valuta " + valute.get(valutaDelete).getOznaka() + " uspesno obrisana!");
                             valute.remove(valutaDelete);
@@ -171,6 +183,7 @@ public class KonvertorValuta {
                         case (4):
                             break checkValue;    
                     }
+                    continue;
                 case (5):
                     break program;     
                 default:
