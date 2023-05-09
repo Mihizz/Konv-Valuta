@@ -132,6 +132,25 @@ public class KonvertorValuta {
                             System.out.println("Dodata valuta: " + v.toStringAdd());
                             System.out.println("-------RESET-------");
                             break checkValue;
+                        case(2):
+                            System.out.println("-------------------");
+                            System.out.println("Odaberite valutu unosom rednog broja: ");
+                            for (int i = 0; i < valute.size(); i++) {
+                                System.out.println((i + 1) + ". " + valute.get(i).toStringList());
+                            }
+                            System.out.print("Zelim valutu: ");
+                            int valuta = sc.nextInt()-1;
+                            
+                            System.out.println("-------------------");
+                            System.out.println("Trenutni kurs valute: " + valute.get(valuta).getKurs());
+                            System.out.print("Novi kurs: ");
+                            valute.get(valuta).setKurs(sc.nextDouble());
+                            
+                            System.out.println("-------------------");
+                            System.out.println("Kurs je uspesno promenjen u " + valute.get(valuta).getKurs());
+                            
+                            System.out.println("-------RESET-------");
+                            break checkValue;    
                     }
                 case (5):
                     break program;     
