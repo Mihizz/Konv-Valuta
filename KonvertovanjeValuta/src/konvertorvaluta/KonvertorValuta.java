@@ -167,7 +167,9 @@ public class KonvertorValuta {
                             System.out.println("Valuta " + valute.get(valutaDelete).getOznaka() + " uspesno obrisana!");
                             valute.remove(valutaDelete);
                             System.out.println("-------RESET-------");
-                            break checkValue;     
+                            break checkValue; 
+                        case (4):
+                            break checkValue;    
                     }
                 case (5):
                     break program;     
