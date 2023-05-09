@@ -116,8 +116,19 @@ public class KonvertorValuta {
                     
                     int opcijaCRUD = sc.nextInt();
                     
-                    switch (opcija) {
-                        
+                    switch (opcijaCRUD) {
+                        case(1):
+                            Valuta v = new  Valuta();
+                            System.out.println("-------------------");
+                            System.out.print("Unesite naziv valute: ");
+                            v.setNaziv(sc.next());
+                            System.out.print("Unesite oznaku valute: ");
+                            v.setOznaka(sc.next());
+                            System.out.print("Unesite kurs: ");
+                            v.setKurs(sc.nextDouble());
+                            System.out.println("-------------------");
+                            valute.add(v);
+                            System.out.println("Dodata valuta: " + v.toStringAdd());
                     }
                 case (5):
                     break program;     
