@@ -39,6 +39,7 @@ public class KonvertorValuta {
             System.out.print("Zelim opciju: ");
             int opcija = sc.nextInt();
 
+            checkValue:
             switch (opcija) {
                 case (1):
                     System.out.println("-------------------");
@@ -129,6 +130,8 @@ public class KonvertorValuta {
                             System.out.println("-------------------");
                             valute.add(v);
                             System.out.println("Dodata valuta: " + v.toStringAdd());
+                            System.out.println("-------RESET-------");
+                            break checkValue;
                     }
                 case (5):
                     break program;     
