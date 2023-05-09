@@ -153,7 +153,15 @@ public class KonvertorValuta {
                             System.out.println("-------------------");
                             System.out.println("Trenutni kurs valute: " + valute.get(valuta).getKurs());
                             System.out.print("Novi kurs: ");
-                            valute.get(valuta).setKurs(sc.nextDouble());
+                            Double newKurs = sc.nextDouble();
+
+                            if(newKurs <= 0){
+                                System.out.println("Pogresan unos!");
+                                System.out.println("-------RESET-------");
+                                continue;
+                            }
+                                
+                            valute.get(valuta).setKurs(sc.nextDouble());    
                             
                             System.out.println("-------------------");
                             System.out.println("Kurs je uspesno promenjen u " + valute.get(valuta).getKurs());
