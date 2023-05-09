@@ -33,10 +33,13 @@ public class KonvertorValuta {
             System.out.println("--- Dobrosli u konvertor valuta --- \nUnesite cifru ispred opcije za start");
             System.out.println("1 - Konvertuj iz dinara u devize");
             System.out.println("2 - Konvertuj iz deviza u dinare");
-            System.out.println("3 - Izadji iz programa");
+            System.out.println("3 - Lista svih valuta");
+            System.out.println("4 - CRUD valute");
+            System.out.println("5 - Izadji iz programa");
             System.out.print("Zelim opciju: ");
             int opcija = sc.nextInt();
 
+            checkValue:
             switch (opcija) {
                 case (1):
                     System.out.println("-------------------");
@@ -98,7 +101,99 @@ public class KonvertorValuta {
                     System.out.println("-------RESET-------");
                     break;
                 case (3):
-                    break program;
+                    System.out.println("-------------------");
+                    System.out.println("Lista svih valuta:");
+                    for (int i = 0; i < valute.size(); i++) {
+                            System.out.println((i + 1) + ". " + valute.get(i).toStringList());
+                        }
+                    System.out.println("-------RESET-------");
+                    break;
+                    
+                case (4):
+                    System.out.println("-------------------");
+                    System.out.println("Odaberite koju akciju zelite da izvrsite");
+                    System.out.println("1 - Dodavanje");
+                    System.out.println("2 - Promena kursa");
+                    System.out.println("3 - Brisanje");
+                    System.out.println("4 - Nazad na glavni meni");
+                    System.out.print("Zelim opciju: ");
+                    
+                    int opcijaCRUD = sc.nextInt();
+                    
+                    switch (opcijaCRUD) {
+                        case(1):
+                            Valuta v = new  Valuta();
+                            System.out.println("-------------------");
+                            System.out.print("Unesite naziv valute: ");
+                            v.setNaziv(sc.next());
+                            System.out.print("Unesite oznaku valute: ");
+                            v.setOznaka(sc.next());
+                            System.out.print("Unesite kurs: ");
+                            v.setKurs(sc.nextDouble());
+                            System.out.println("-------------------");
+                            valute.add(v);
+                            System.out.println("Dodata valuta: " + v.toStringAdd());
+                            System.out.println("-------RESET-------");
+                            break checkValue;
+                        case(2):
+                            System.out.println("-------------------");
+                            System.out.println("Odaberite valutu unosom rednog broja: ");
+                            for (int i = 0; i < valute.size(); i++) {
+                                System.out.println((i + 1) + ". " + valute.get(i).toStringList());
+                            }
+                            System.out.print("Zelim valutu: ");
+                            int valuta = sc.nextInt()-1;
+                            
+                            if(valuta > valute.size() || valuta <= 0){
+                                System.out.println("Pogresan unos!");
+                                System.out.println("-------RESET-------");
+                                continue;
+                            }
+                            
+                            System.out.println("-------------------");
+                            System.out.println("Trenutni kurs valute: " + valute.get(valuta).getKurs());
+                            System.out.print("Novi kurs: ");
+                            Double newKurs = sc.nextDouble();
+
+                            if(newKurs <= 0){
+                                System.out.println("Pogresan unos!");
+                                System.out.println("-------RESET-------");
+                                continue;
+                            }
+                                
+                            valute.get(valuta).setKurs(newKurs);    
+                            
+                            System.out.println("-------------------");
+                            System.out.println("Kurs je uspesno promenjen u " + valute.get(valuta).getKurs());
+                            
+                            System.out.println("-------RESET-------");
+                            break checkValue; 
+                        case(3):
+                            System.out.println("-------------------");
+                            System.out.println("Odaberite valutu unosom rednog broja: ");
+                            for (int i = 0; i < valute.size(); i++) {
+                                System.out.println((i + 1) + ". " + valute.get(i).toStringList());
+                            }
+                            System.out.print("Zelim valutu: ");
+                            int valutaDelete = sc.nextInt()-1;
+                            
+                            if(valutaDelete > valute.size() || valutaDelete <= 0){
+                                System.out.println("Pogresan unos!");
+                                System.out.println("-------RESET-------");
+                                continue;
+                            }
+                            
+                            System.out.println("-------------------");
+                            System.out.println("Valuta " + valute.get(valutaDelete).getOznaka() + " uspesno obrisana!");
+                            valute.remove(valutaDelete);
+                            System.out.println("-------RESET-------");
+                            break checkValue; 
+                        case (4):
+                            break checkValue;    
+                    }
+                    continue;
+                case (5):
+                    break program;     
                 default:
                     System.out.println("-------------------");
                     System.out.println("Pogresan unos!!!");

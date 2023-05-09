@@ -16,6 +16,9 @@ public class Valuta {
     private String oznaka;
     private double kurs;
 
+    public Valuta() {
+    }
+    
     public Valuta(String naziv, String oznaka, double kurs) {
         this.naziv = naziv;
         this.oznaka = oznaka;
@@ -49,6 +52,14 @@ public class Valuta {
     @Override
     public String toString() {
         return oznaka + " - " + naziv;
+    }
+    
+    public String toStringList() {
+        return naziv + " (" + oznaka + ") || Kurs: " + kurs;
+    }
+    
+    public String toStringAdd() {
+        return "Naziv: " + naziv + " || Oznaka: " + oznaka + " || Kurs: " + kurs;
     }
     
     public static boolean proveriOznaku(String oznaka,List<Valuta> valute){
