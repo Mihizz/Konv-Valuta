@@ -102,7 +102,7 @@ public class KonvertorValuta {
                     System.out.println("-------------------");
                     System.out.println("Lista svih valuta:");
                     for (int i = 0; i < valute.size(); i++) {
-                            System.out.println((i + 1) + ". " + valute.get(i).toString()+ " || Kurs: " + valute.get(i).getKurs());
+                            System.out.println((i + 1) + ". " + valute.get(i).toStringList());
                         }
                 case (4):
                     break program;    

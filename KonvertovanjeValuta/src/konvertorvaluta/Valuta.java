@@ -51,6 +51,10 @@ public class Valuta {
         return oznaka + " - " + naziv;
     }
     
+    public String toStringList() {
+        return naziv + " (" + oznaka + ") || Kurs: " + kurs;
+    }
+    
     public static boolean proveriOznaku(String oznaka,List<Valuta> valute){
         for (int i = 0; i < valute.size(); i++) {
             if(valute.get(i).getOznaka().equalsIgnoreCase(oznaka)){
