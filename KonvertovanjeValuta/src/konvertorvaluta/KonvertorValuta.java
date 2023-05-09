@@ -33,7 +33,8 @@ public class KonvertorValuta {
             System.out.println("--- Dobrosli u konvertor valuta --- \nUnesite cifru ispred opcije za start");
             System.out.println("1 - Konvertuj iz dinara u devize");
             System.out.println("2 - Konvertuj iz deviza u dinare");
-            System.out.println("3 - Izadji iz programa");
+            System.out.println("3 - Lista svih valuta");
+            System.out.println("4 - Izadji iz programa");
             System.out.print("Zelim opciju: ");
             int opcija = sc.nextInt();
 
@@ -98,7 +99,13 @@ public class KonvertorValuta {
                     System.out.println("-------RESET-------");
                     break;
                 case (3):
-                    break program;
+                    System.out.println("-------------------");
+                    System.out.println("Lista svih valuta:");
+                    for (int i = 0; i < valute.size(); i++) {
+                            System.out.println((i + 1) + ". " + valute.get(i).toString()+ " || Kurs: " + valute.get(i).getKurs());
+                        }
+                case (4):
+                    break program;    
                 default:
                     System.out.println("-------------------");
                     System.out.println("Pogresan unos!!!");
