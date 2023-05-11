@@ -6,7 +6,7 @@ on:
       - main
     
 jobs:
-  build-and-push:
+    name: build-container
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 Running github action ${{ github.event_name }} event 🎉"
