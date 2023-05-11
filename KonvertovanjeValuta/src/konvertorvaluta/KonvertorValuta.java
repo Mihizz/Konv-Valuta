@@ -110,12 +110,17 @@ public class KonvertorValuta {
                     break;
                     
                 case (4):
+                    crudLoop:
+                    do{
+                        
+                    
                     System.out.println("-------------------");
                     System.out.println("Odaberite koju akciju zelite da izvrsite");
                     System.out.println("1 - Dodavanje");
                     System.out.println("2 - Promena kursa");
                     System.out.println("3 - Brisanje");
-                    System.out.println("4 - Nazad na glavni meni");
+                    System.out.println("4 - Obrisi sve");
+                    System.out.println("5 - Nazad na glavni meni");
                     System.out.print("Zelim opciju: ");
                     
                     int opcijaCRUD = sc.nextInt();
@@ -133,7 +138,6 @@ public class KonvertorValuta {
                             System.out.println("-------------------");
                             valute.add(v);
                             System.out.println("Dodata valuta: " + v.toStringAdd());
-                            System.out.println("-------RESET-------");
                             break checkValue;
                         case(2):
                             System.out.println("-------------------");
@@ -146,7 +150,6 @@ public class KonvertorValuta {
                             
                             if(valuta > valute.size() || valuta <= 0){
                                 System.out.println("Pogresan unos!");
-                                System.out.println("-------RESET-------");
                                 continue;
                             }
                             
@@ -157,7 +160,6 @@ public class KonvertorValuta {
 
                             if(newKurs <= 0){
                                 System.out.println("Pogresan unos!");
-                                System.out.println("-------RESET-------");
                                 continue;
                             }
                                 
@@ -167,7 +169,7 @@ public class KonvertorValuta {
                             System.out.println("Kurs je uspesno promenjen u " + valute.get(valuta).getKurs());
                             
                             System.out.println("-------RESET-------");
-                            break checkValue; 
+                            continue; 
                         case(3):
                             System.out.println("-------------------");
                             System.out.println("Odaberite valutu unosom rednog broja: ");
@@ -179,19 +181,23 @@ public class KonvertorValuta {
                             
                             if(valutaDelete > valute.size() || valutaDelete <= 0){
                                 System.out.println("Pogresan unos!");
-                                System.out.println("-------RESET-------");
-                                continue;
+                                break;
                             }
                             
                             System.out.println("-------------------");
                             System.out.println("Valuta " + valute.get(valutaDelete).getOznaka() + " uspesno obrisana!");
                             valute.remove(valutaDelete);
+                            break; 
+                        case(4):
+                            System.out.println("----------------------");
+                            valute.removeAll(valute);
+                            System.out.println("Sve valute su obrisane");
+                            break;                             
+                        case (5):
                             System.out.println("-------RESET-------");
-                            break checkValue; 
-                        case (4):
                             break checkValue;    
                     }
-                    continue;
+                    }while (true);
                 case (5):
                     break program;     
                 default:
