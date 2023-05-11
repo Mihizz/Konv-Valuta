@@ -115,7 +115,8 @@ public class KonvertorValuta {
                     System.out.println("1 - Dodavanje");
                     System.out.println("2 - Promena kursa");
                     System.out.println("3 - Brisanje");
-                    System.out.println("4 - Nazad na glavni meni");
+                    System.out.println("4 - Obrisi sve");
+                    System.out.println("5 - Nazad na glavni meni");
                     System.out.print("Zelim opciju: ");
                     
                     int opcijaCRUD = sc.nextInt();
@@ -188,7 +189,13 @@ public class KonvertorValuta {
                             valute.remove(valutaDelete);
                             System.out.println("-------RESET-------");
                             break checkValue; 
-                        case (4):
+                        case(4):
+                            System.out.println("-------------------");
+                            valute.removeAll(valute);
+                            System.out.println("Sve valute su obrisane");
+                            System.out.println("-------RESET-------");
+                            break checkValue;                             
+                        case (5):
                             break checkValue;    
                     }
                     continue;
